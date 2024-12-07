@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+    <servlet>
+        <servlet-name>ErrorHandlerServlet</servlet-name>
+        <servlet-class>com.example.ErrorHandlerServlet</servlet-class> <!-- Adjust package path -->
+    </servlet>
+
+   
+    <servlet-mapping>
+        <servlet-name>ErrorHandlerServlet</servlet-name>
+        <url-pattern>/ErrorHandlerServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>

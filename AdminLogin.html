@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>E-Trains</title>
+<link rel="stylesheet" href="UserHome_Css.css">
+<script>
+  function validateAdminLoginForm() {
+    const uname = document.forms["adminLoginForm"]["uname"].value;
+    const pword = document.forms["adminLoginForm"]["pword"].value;
+    if (!uname) {
+      alert("Username is required!");
+      return false;
+    }
+    if (!pword) {
+      alert("Password is required!");
+      return false;
+    }
+    return true;
+  }
+</script>
+</head>
+<body>
+<header>
+    <h1 class="hd">National Ticket Booking Spot</h1>
+    <div class="main">
+        <span class="menu"><a href="UserLogin.html">Login as User</a></span>
+        <span class="menu"><a href="UserRegister.html">New User Register</a></span>
+        <span class="menu"><a href="AdminLogin.html">Login as Admin</a></span>
+    </div>
+</header>
+<div class="tab green">Admin Login</div>
+<form name="adminLoginForm" action="adminlogin" class="tab brown" method="post" onsubmit="return validateAdminLoginForm()">
+    <br />UserName: <input type="text" name="uname" placeholder="Enter Your EmailId"><br />
+    <br /> Password: <input type="password" name="pword"><br />
+    <br /> <input type="submit" value=" LOGIN "><br />
+</form>
+<br />
+</body>
+</html>

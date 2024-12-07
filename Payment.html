@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Payments</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="hd">
+		<h1>Card Payment Gateway</h1>
+	</div>
+	<!-- Header remains unchanged -->
+	<div class="container-fluid" style="position: fixed;">
+		<!-- Payment form -->
+		<form role="form" action="booktrains" method="post" onsubmit="return validatePaymentForm()">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label>CARD NUMBER</label>
+							<div class="input-group">
+								<input type="tel" class="form-control" id="cardNumber" placeholder="Valid Card Number" required/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-7 col-md-7">
+						<div class="form-group">
+							<label>EXPIRATION DATE</label>
+							<input type="tel" class="form-control" id="expDate" placeholder="MM / YY" required/>
+						</div>
+					</div>
+					<div class="col-xs-5 col-md-5 pull-right">
+						<div class="form-group">
+							<label>CV CODE</label>
+							<input type="tel" class="form-control" id="cvv" placeholder="CVC" required/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label>CARD OWNER</label>
+							<input type="text" class="form-control" id="cardOwner" placeholder="Card Owner Name" required/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<input type="submit" value="Confirm Payment" class="btn btn-success btn-lg btn-block" />
+			</div>
+		</form>
+	</div>
+
+	<script>
+		// JavaScript function to validate payment form
+		function validatePaymentForm() {
+			const cardNumber = document.getElementById("cardNumber").value;
+			const expDate = document.getElementById("expDate").value;
+			const cvv = document.getElementById("cvv").value;
+			const cardOwner = document.getElementById("cardOwner").value;
+
+			if (!cardNumber || isNaN(cardNumber) || cardNumber.length !== 16) {
+				alert("Please enter a valid 16-digit Card Number.");
+				return false;
+			}
+
+			if (!expDate || !/^\d{2}\/\d{2}$/.test(expDate)) {
+				alert("Please enter a valid Expiration Date in MM/YY format.");
+				return false;
+			}
+
+			if (!cvv || isNaN(cvv) || cvv.length !== 3) {
+				alert("Please enter a valid 3-digit CV Code.");
+				return false;
+			}
+
+			if (!cardOwner) {
+				alert("Please enter the Card Owner's Name.");
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+</body>
+</html>

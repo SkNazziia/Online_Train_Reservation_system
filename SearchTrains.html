@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>E-Trains</title>
+<link rel="stylesheet" href="UserHome_Css.css">
+</head>
+<body>
+	<header>
+		<h1 class="hd">National Ticket Booking Spot</h1>
+		<div class="home">
+			<p class="menu"><a href="userhome">Home</a></p>
+		</div>
+		<!-- Other menu options are the same -->
+	</header>
+
+	<div class="main">
+		<p class="menu">Trains Enquiry</p>
+	</div>
+	<form action="searchtrainservlet" class="tab red" method="post" onsubmit="return validateSearchForm()">
+		TrainNumber: <input type="text" id="trainnumber" name="trainnumber"><br />
+		<br />
+		<input type="submit" value=" SEARCH TRAIN "><br />
+	</form>
+	<br />
+
+	<script>
+		// JavaScript function to validate the search form
+		function validateSearchForm() {
+			const trainNumber = document.getElementById("trainnumber").value;
+
+			if (!trainNumber || isNaN(trainNumber)) {
+				alert("Please enter a valid Train Number.");
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+</body>
+</html>
